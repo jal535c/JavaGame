@@ -33,10 +33,12 @@ public class MasterCodigo {
       } 
     } while (longitud < 0 && !dificultad.equals("s"));
     
-    System.out.println("- \033[31mT\033[37m: Indica que tengo ese numero.");
-    System.out.println("- \033[32mP\033[37m: Indica que tengo ese numero en posicion correcta.");
+    
     
     if (!dificultad.equals("s")) {
+      System.out.println("- \033[31mT\033[37m: Indica que tengo ese numero.");
+      System.out.println("- \033[32mP\033[37m: Indica que tengo ese numero en posicion correcta.");
+      
       // Genera un número aleatorio con longitud en función de la dificultad
       numAdivina = funciones.Master.arrayAleatorios(longitud);
       
@@ -73,7 +75,7 @@ public class MasterCodigo {
 	        salir = true;
 	      } else if (intentos == 5) {
 	        salir = true;
-	        System.out.println("Lo siento, has perdido. El numero era: ");
+	        System.out.print("Lo siento, has perdido. El numero era: ");
 	        funciones.Master.imprimeArrayInt(numAdivina);
 	      } else if (num < 0) {
 	        salir = true;
@@ -86,6 +88,7 @@ public class MasterCodigo {
 	      intentos++;
       } while (!salir);
       
+      System.out.println();
     }
   }
 }
