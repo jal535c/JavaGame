@@ -13,13 +13,15 @@ public class MasterCodigo {
     String[] salida;
     boolean salir = false;
     
-    System.out.printf("%60s\n\n", "Bienvenido a MasterMind!");
+    System.out.println("\n┌─────────────────────────┐"); 
+    System.out.println("│ Bienvenido a MasterMind │");
+    System.out.println("└─────────────────────────┘\n"); 
     
     // Establece la dificultad
     do {      
-      System.out.println("- Facil (4 numeros a adivinar del 1 al 8) ");
-      System.out.println("- Medio (6 numeros a adivinar del 1 al 8) ");
-      System.out.println("- Dificil (8 numeros a adivinar del 1 al 8) ");
+      System.out.println("- Facil (adivinar 4 numeros del 1 al 8) ");
+      System.out.println("- Medio (adivinar 6 numeros del 1 al 8) ");
+      System.out.println("- Dificil (adivinar 8 numeros del 1 al 8) ");
       System.out.print("Elige la dificultad (\'s\' para salir): ");
       dificultad = s.next();
       
@@ -31,6 +33,8 @@ public class MasterCodigo {
       } 
     } while (longitud < 0 && !dificultad.equals("s"));
     
+    System.out.println("- \033[31mT\033[37m: Indica que tengo ese numero.");
+    System.out.println("- \033[32mP\033[37m: Indica que tengo ese numero en posicion correcta.");
     
     if (!dificultad.equals("s")) {
       // Genera un número aleatorio con longitud en función de la dificultad
@@ -44,7 +48,7 @@ public class MasterCodigo {
 	
       // Pinta tantos ? como longitud del número
       for (int i = 0; i < longitud; i++) {
-	      System.out.print("?");
+	      System.out.print("\033[33m?\033[37m");
       }
       
       do {
@@ -65,7 +69,7 @@ public class MasterCodigo {
 	      // Comprueba si el número introducido es igual al que tenemos que 
 	      // adivinar
 	      if (funciones.Master.arrayIguales(numAdivina, num)) {
-	        System.out.println("Enhorabuena, has ganado!");
+	        System.out.println("Enhorabuena, has ganado!!!");
 	        salir = true;
 	      } else if (intentos == 5) {
 	        salir = true;
@@ -73,7 +77,7 @@ public class MasterCodigo {
 	        funciones.Master.imprimeArrayInt(numAdivina);
 	      } else if (num < 0) {
 	        salir = true;
-	        System.out.println("Saliendo.");
+	        System.out.println("Saliendo...");
 	      } else {
 	        salida = funciones.Master.adivinado(numAdivina, num);
 	        funciones.Master.imprimeArrayString(salida);

@@ -111,14 +111,14 @@ public class Master {
     
     // Inicializa el array suponiendo que no están los números
     for (int i = 0; i < x.length; i++) {
-      a[i] = "?";
+      a[i] = "\033[33m?\033[37m";
     }
     
     // Comprueba si el número introducido está en el número a adivinar
     for (int i = 0; i < x.length; i++) {
       for (int j = 0; j < x.length; j++) {
 	      if (x[j] == num[i]) {
-	        a[i] = "T";
+	        a[i] = "\033[31mT\033[37m";
 	      }
       }
     }
@@ -127,7 +127,7 @@ public class Master {
     // correcta
     for (int i = 0; i < x.length; i++) {
       if (x[i] == num[i]) {
-	      a[i] = "P";
+	      a[i] = "\033[32mP\033[37m";
       }
     }
     
